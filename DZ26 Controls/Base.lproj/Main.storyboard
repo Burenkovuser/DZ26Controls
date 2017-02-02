@@ -94,6 +94,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="changeSpeedSlider" destination="Azm-HW-bWF" id="bqP-Nl-Ayw"/>
                         <outlet property="imageControl" destination="mzM-KA-wJw" id="F6V-7s-v0y"/>
                         <outlet property="imageView" destination="NKG-dx-HUc" id="TTO-oi-SLS"/>
                         <outlet property="translationControl" destination="bzi-5h-wE6" id="Ewy-36-0vc"/>

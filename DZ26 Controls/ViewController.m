@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
-
 @end
 
 @implementation ViewController
@@ -23,12 +22,10 @@
     [self imageView];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 -(void) changeImage {
     
@@ -40,8 +37,16 @@
         self.imageView.image = [UIImage imageNamed:@"kick1-upgraded.png"];
     }
 }
-
+//включаем поворот картинки
 - (IBAction)rotationControl:(UISwitch *)sender {
+    [UIView animateWithDuration:self.changeSpeedSlider.value
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.imageView.transform = CGAffineTransformRotate(self.imageView.transform, M_PI);
+                     } completion:^(BOOL finished) {
+                         [self rotationControl:sender];
+                     }];
 }
 
 - (IBAction)scaleControl:(UISwitch *)sender {

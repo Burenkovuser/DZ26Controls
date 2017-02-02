@@ -18,6 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *imageControl;
 
+@property (weak, nonatomic) IBOutlet UISlider *changeSpeedSlider;
 
 @end
 
