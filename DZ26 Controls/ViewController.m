@@ -50,6 +50,15 @@
 }
 
 - (IBAction)scaleControl:(UISwitch *)sender {
+    [UIView animateWithDuration:self.changeSpeedSlider.value
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         double value = (double)arc4random() / 268435456;
+                         self.imageView.transform = CGAffineTransformMakeScale(value, value);
+                     } completion:^(BOOL finished) {
+                         [self scaleControl:sender];
+                     }];
 }
 - (IBAction)speedSlider:(UISlider *)sender {
 }
