@@ -12,6 +12,8 @@
 
 - (IBAction)rotationControl:(UISwitch *)sender;
 - (IBAction)scaleControl:(UISwitch *)sender;
+- (IBAction)translationControl:(UISwitch *)sender;
+
 @property (weak, nonatomic) IBOutlet UISwitch *translationControl;
 - (IBAction)speedSlider:(UISlider *)sender;
 - (IBAction)selectAnotherControl:(UISegmentedControl *)sender;

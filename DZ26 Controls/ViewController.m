@@ -10,7 +10,11 @@
 
 @interface ViewController ()
 
+
+@property (weak, nonatomic) IBOutlet UIView *backView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end
 
@@ -39,6 +43,7 @@
 }
 //включаем поворот картинки
 - (IBAction)rotationControl:(UISwitch *)sender {
+    if (sender.isOn) {
     [UIView animateWithDuration:self.changeSpeedSlider.value
                           delay:0
                         options:UIViewAnimationOptionCurveLinear
@@ -47,9 +52,11 @@
                      } completion:^(BOOL finished) {
                          [self rotationControl:sender];
                      }];
+    }
 }
 
 - (IBAction)scaleControl:(UISwitch *)sender {
+     if (sender.isOn) {
     [UIView animateWithDuration:self.changeSpeedSlider.value
                           delay:0
                         options:UIViewAnimationOptionCurveLinear
@@ -59,6 +66,24 @@
                      } completion:^(BOOL finished) {
                          [self scaleControl:sender];
                      }];
+     }
+}
+
+- (IBAction)translationControl:(UISwitch *)sender {
+    if (sender.isOn) {
+        [UIView animateWithDuration:self.changeSpeedSlider.value
+                              delay:0
+                            options:UIViewAnimationOptionCurveLinear
+                         animations:^{
+                             CGFloat randX = (arc4random() % (int)CGRectGetMaxX(self.backView.bounds) -self.imageView.frame.size.width) + self.imageView.frame.size.width;
+                             CGFloat randY = (arc4random() % (int)CGRectGetMaxY(self.backView.bounds) - self.imageView.frame.size.height) + self.imageView.frame.size.height;
+                             
+                             self.imageView.center = CGPointMake(randX, randY);
+                             
+                         } completion:^(BOOL finished) {
+                             [self translationControl:sender];
+                         }];
+    }
 }
 - (IBAction)speedSlider:(UISlider *)sender {
 }
