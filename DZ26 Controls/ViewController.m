@@ -61,7 +61,7 @@
                           delay:0
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-                         double value = (double)arc4random() / 268435456;
+                         double value = (double)arc4random() / 868435456;//чудесный делитель!!
                          self.imageView.transform = CGAffineTransformMakeScale(value, value);
                      } completion:^(BOOL finished) {
                          [self scaleControl:sender];
